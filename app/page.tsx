@@ -1,65 +1,130 @@
-import Image from "next/image";
+import Link from "next/link";
+import { getAllPosts } from "./data/posts";
 
-export default function Home() {
+export default async function Home() {
+  const posts = await getAllPosts();
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="bg-white">
+      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-gray-900 mb-8">
+            Welcome to My Next.js App
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
+            This is a learning project to understand Next.js App Router, Server
+            Components, Client Components, and modern Next.js features.
           </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto mb-16">
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                App Router
+              </h3>
+              <p className="text-gray-600 mb-4">
+                Learn about file-based routing and nested layouts
+              </p>
+              <Link
+                href="/about"
+                className="text-blue-600 hover:text-blue-800 font-medium"
+              >
+                Explore →
+              </Link>
+            </div>
+
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                Components
+              </h3>
+              <p className="text-gray-600 mb-4">
+                Server vs Client Components with interactivity
+              </p>
+              <Link
+                href="/counter"
+                className="text-blue-600 hover:text-blue-800 font-medium"
+              >
+                Try Counter →
+              </Link>
+            </div>
+
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                Dashboard
+              </h3>
+              <p className="text-gray-600 mb-4">
+                Nested layout with sidebar navigation
+              </p>
+              <Link
+                href="/dashboard"
+                className="text-blue-600 hover:text-blue-800 font-medium"
+              >
+                View Dashboard →
+              </Link>
+            </div>
+          </div>
+
+          {/* Blog Section */}
+          <div className="text-left">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">
+              Latest Blog Posts
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {posts.slice(0, 4).map((post) => (
+                <article
+                  key={post.id}
+                  className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow"
+                >
+                  <div className="flex items-center text-sm text-gray-500 mb-3">
+                    <span>{post.author}</span>
+                    <span className="mx-2">•</span>
+                    <time dateTime={post.publishedAt}>
+                      {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </time>
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      className="hover:text-blue-600 transition-colors"
+                    >
+                      {post.title}
+                    </Link>
+                  </h3>
+                  <p className="text-gray-600 mb-4 line-clamp-3">
+                    {post.excerpt}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {post.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="text-blue-600 hover:text-blue-800 font-medium"
+                  >
+                    Read more →
+                  </Link>
+                </article>
+              ))}
+            </div>
+            <div className="text-center mt-8">
+              <Link
+                href="/blog"
+                className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                View All Posts
+              </Link>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </div>
     </div>
   );
 }
