@@ -1,13 +1,13 @@
-'use server';
+"use server";
 
-import { z } from 'zod';
-import { revalidatePath } from 'next/cache';
+import { revalidatePath } from "next/cache";
+import { z } from "zod";
 
 // Define the validation schema
 const contactSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.string().email('Please enter a valid email address'),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
+  name: z.string().min(2, "Tên phải có ít nhất 2 ký tự"),
+  email: z.string().email("Vui lòng nhập địa chỉ email hợp lệ"),
+  message: z.string().min(10, "Tin nhắn phải có ít nhất 10 ký tự"),
 });
 
 export type ContactFormState = {
@@ -27,9 +27,9 @@ export async function submitContactForm(
   try {
     // Extract form data
     const rawData = {
-      name: formData.get('name') as string,
-      email: formData.get('email') as string,
-      message: formData.get('message') as string,
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      message: formData.get("message") as string,
     };
 
     // Validate the data
@@ -37,7 +37,7 @@ export async function submitContactForm(
 
     if (!result.success) {
       return {
-        error: 'Please fix the errors below',
+        error: "Vui lòng sửa các lỗi bên dưới",
         fieldErrors: result.error.flatten().fieldErrors,
       };
     }
@@ -45,7 +45,7 @@ export async function submitContactForm(
     const { name, email, message } = result.data;
 
     // Simulate sending the message (in a real app, you'd save to database or send email)
-    console.log('Contact form submission:', {
+    console.log("Contact form submission:", {
       name,
       email,
       message,
@@ -53,7 +53,7 @@ export async function submitContactForm(
     });
 
     // Simulate API delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     // In a real application, you would:
     // 1. Save to database
@@ -62,15 +62,15 @@ export async function submitContactForm(
     // 4. Log the submission
 
     // Revalidate any relevant paths if needed
-    revalidatePath('/contact');
+    revalidatePath("/contact");
 
     return {
       success: true,
     };
   } catch (error) {
-    console.error('Contact form error:', error);
+    console.error("Contact form error:", error);
     return {
-      error: 'Something went wrong. Please try again later.',
+      error: "Đã xảy ra lỗi. Vui lòng thử lại sau.",
     };
   }
 }

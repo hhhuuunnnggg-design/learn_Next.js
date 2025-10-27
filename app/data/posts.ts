@@ -13,124 +13,124 @@ export interface Post {
 export const posts: Post[] = [
   {
     id: "1",
-    title: "Getting Started with Next.js App Router",
-    slug: "getting-started-nextjs-app-router",
+    title: "Bắt Đầu Với Next.js App Router",
+    slug: "bat-dau-voi-nextjs-app-router",
     excerpt:
-      "Learn the fundamentals of Next.js App Router and how it revolutionizes React development.",
+      "Tìm hiểu những điều cơ bản về Next.js App Router và cách nó cách mạng hóa việc phát triển React.",
     content: `
-# Getting Started with Next.js App Router
+# Bắt Đầu Với Next.js App Router
 
-Next.js App Router is a powerful new routing system that brings many improvements to React applications. In this comprehensive guide, we'll explore the key concepts and features.
+Next.js App Router là một hệ thống routing mới mạnh mẽ được xây dựng trên React Server Components. Trong hướng dẫn toàn diện này, chúng ta sẽ khám phá các khái niệm và tính năng chính.
 
-## What is App Router?
+## App Router là gì?
 
-The App Router is Next.js's new routing system built on React Server Components. It provides:
+App Router là hệ thống routing mới của Next.js được xây dựng trên React Server Components. Nó cung cấp:
 
-- **File-based routing**: Organize your routes using the file system
-- **Server Components**: Render components on the server for better performance
-- **Client Components**: Add interactivity where needed
-- **Nested layouts**: Create reusable layouts for different sections
+- **File-based routing**: Tổ chức các route của bạn bằng hệ thống file
+- **Server Components**: Render các component trên server để có hiệu suất tốt hơn
+- **Client Components**: Thêm tính tương tác khi cần thiết
+- **Nested layouts**: Tạo các layout có thể tái sử dụng cho các phần khác nhau
 
-## Key Benefits
+## Lợi ích chính
 
-1. **Better Performance**: Server Components reduce the JavaScript bundle size
-2. **Improved SEO**: Server-side rendering by default
-3. **Simplified Data Fetching**: Fetch data directly in Server Components
-4. **Enhanced Developer Experience**: Better error handling and debugging
+1. **Hiệu suất tốt hơn**: Server Components giảm kích thước JavaScript bundle
+2. **SEO cải thiện**: Server-side rendering theo mặc định
+3. **Data fetching đơn giản hóa**: Fetch dữ liệu trực tiếp trong Server Components
+4. **Trải nghiệm nhà phát triển tốt hơn**: Xử lý lỗi và debug tốt hơn
 
-## Getting Started
+## Bắt đầu
 
-To create a new Next.js app with App Router:
+Để tạo một ứng dụng Next.js mới với App Router:
 
 \`\`\`bash
 npx create-next-app@latest my-app --app
 \`\`\`
 
-The \`--app\` flag ensures you're using the App Router from the start.
+Flag \`--app\` đảm bảo bạn sử dụng App Router ngay từ đầu.
 
-## Conclusion
+## Kết luận
 
-The App Router represents a significant step forward in React development, offering better performance, developer experience, and user experience. Start exploring it today!
+App Router đại diện cho một bước tiến đáng kể trong việc phát triển React, mang lại hiệu suất, trải nghiệm nhà phát triển và trải nghiệm người dùng tốt hơn. Hãy bắt đầu khám phá ngay hôm nay!
     `,
-    author: "John Doe",
+    author: "Nguyễn Văn A",
     publishedAt: "2024-01-15",
-    tags: ["Next.js", "React", "Tutorial"],
+    tags: ["Next.js", "React", "Hướng dẫn"],
   },
   {
     id: "2",
-    title: "Understanding Server vs Client Components",
-    slug: "understanding-server-vs-client-components",
+    title: "Hiểu Về Server vs Client Components",
+    slug: "hieu-ve-server-vs-client-components",
     excerpt:
-      "A deep dive into the differences between Server and Client Components in Next.js.",
+      "Một cái nhìn sâu sắc về sự khác biệt giữa Server và Client Components trong Next.js.",
     content: `
-# Understanding Server vs Client Components
+# Hiểu Về Server vs Client Components
 
-One of the most important concepts in Next.js App Router is understanding when to use Server Components versus Client Components.
+Một trong những khái niệm quan trọng nhất trong Next.js App Router là hiểu khi nào nên sử dụng Server Components so với Client Components.
 
 ## Server Components
 
-Server Components run on the server and are rendered to HTML before being sent to the client. They:
+Server Components chạy trên server và được render thành HTML trước khi gửi đến client. Chúng:
 
-- Run on the server during the build process or request time
-- Can directly access backend resources (databases, file systems, etc.)
-- Don't include JavaScript in the client bundle
-- Cannot use browser-only APIs or React hooks like useState
+- Chạy trên server trong quá trình build hoặc thời gian request
+- Có thể truy cập trực tiếp các tài nguyên backend (cơ sở dữ liệu, hệ thống file, v.v.)
+- Không bao gồm JavaScript trong client bundle
+- Không thể sử dụng các API chỉ dành cho trình duyệt hoặc React hooks như useState
 
 ## Client Components
 
-Client Components run in the browser and provide interactivity. They:
+Client Components chạy trong trình duyệt và cung cấp tính tương tác. Chúng:
 
-- Include JavaScript that runs in the browser
-- Can use React hooks and browser APIs
-- Enable user interactions and state management
-- Are marked with the 'use client' directive
+- Bao gồm JavaScript chạy trong trình duyệt
+- Có thể sử dụng React hooks và browser APIs
+- Cho phép tương tác người dùng và quản lý state
+- Được đánh dấu bằng directive 'use client'
 
-## When to Use Each
+## Khi nào sử dụng mỗi loại
 
-**Use Server Components for:**
-- Static content
+**Sử dụng Server Components cho:**
+- Nội dung tĩnh
 - Data fetching
-- SEO-critical content
-- Components that don't need interactivity
+- Nội dung quan trọng cho SEO
+- Các component không cần tính tương tác
 
-**Use Client Components for:**
-- Interactive elements (buttons, forms)
-- State management
+**Sử dụng Client Components cho:**
+- Các phần tử tương tác (nút, form)
+- Quản lý state
 - Browser APIs
 - Event handlers
 
-## Best Practices
+## Thực hành tốt nhất
 
-1. Start with Server Components by default
-2. Only add 'use client' when you need interactivity
-3. Keep Client Components small and focused
-4. Pass data from Server to Client Components as props
+1. Bắt đầu với Server Components theo mặc định
+2. Chỉ thêm 'use client' khi bạn cần tính tương tác
+3. Giữ Client Components nhỏ và tập trung
+4. Truyền dữ liệu từ Server sang Client Components dưới dạng props
 
-## Conclusion
+## Kết luận
 
-Understanding the distinction between Server and Client Components is crucial for building efficient Next.js applications. Use Server Components for performance and Client Components for interactivity.
+Hiểu sự khác biệt giữa Server và Client Components là rất quan trọng để xây dựng các ứng dụng Next.js hiệu quả. Sử dụng Server Components cho hiệu suất và Client Components cho tính tương tác.
     `,
-    author: "Jane Smith",
+    author: "Trần Thị B",
     publishedAt: "2024-01-12",
-    tags: ["Next.js", "Server Components", "Performance"],
+    tags: ["Next.js", "Server Components", "Hiệu suất"],
   },
   {
     id: "3",
-    title: "Data Fetching Strategies in Next.js",
-    slug: "data-fetching-strategies-nextjs",
+    title: "Chiến Lược Data Fetching Trong Next.js",
+    slug: "chien-luoc-data-fetching-trong-nextjs",
     excerpt:
-      "Explore different data fetching strategies including SSG, SSR, and ISR in Next.js.",
+      "Khám phá các chiến lược data fetching khác nhau bao gồm SSG, SSR, và ISR trong Next.js.",
     content: `
-# Data Fetching Strategies in Next.js
+# Chiến Lược Data Fetching Trong Next.js
 
-Next.js provides multiple strategies for fetching data, each optimized for different use cases. Let's explore them in detail.
+Next.js cung cấp nhiều chiến lược để fetch dữ liệu, mỗi chiến lược được tối ưu hóa cho các trường hợp sử dụng khác nhau. Hãy khám phá chúng một cách chi tiết.
 
 ## Static Site Generation (SSG)
 
-SSG generates pages at build time, making them extremely fast and SEO-friendly.
+SSG tạo ra các trang tại thời điểm build, làm cho chúng cực kỳ nhanh và thân thiện với SEO.
 
 \`\`\`typescript
-// This runs at build time
+// Điều này chạy tại thời điểm build
 export async function generateStaticParams() {
   const posts = await fetch('https://api.example.com/posts');
   return posts.map((post) => ({
@@ -141,10 +141,10 @@ export async function generateStaticParams() {
 
 ## Server-Side Rendering (SSR)
 
-SSR generates pages on each request, perfect for dynamic content.
+SSR tạo ra các trang trên mỗi request, hoàn hảo cho nội dung động.
 
 \`\`\`typescript
-// This runs on each request
+// Điều này chạy trên mỗi request
 export async function getServerSideProps() {
   const data = await fetch('https://api.example.com/data');
   return { props: { data } };
@@ -153,10 +153,10 @@ export async function getServerSideProps() {
 
 ## Incremental Static Regeneration (ISR)
 
-ISR combines the benefits of SSG with the ability to update content without rebuilding.
+ISR kết hợp lợi ích của SSG với khả năng cập nhật nội dung mà không cần rebuild.
 
 \`\`\`typescript
-// Revalidate every 60 seconds
+// Revalidate mỗi 60 giây
 export const revalidate = 60;
 
 export default async function Page() {
@@ -167,9 +167,9 @@ export default async function Page() {
 }
 \`\`\`
 
-## App Router Data Fetching
+## Data Fetching trong App Router
 
-In the App Router, you can fetch data directly in Server Components:
+Trong App Router, bạn có thể fetch dữ liệu trực tiếp trong Server Components:
 
 \`\`\`typescript
 async function getPosts() {
@@ -183,43 +183,43 @@ export default async function BlogPage() {
 }
 \`\`\`
 
-## Caching Strategies
+## Chiến lược Caching
 
-Next.js provides automatic caching with different strategies:
+Next.js cung cấp caching tự động với các chiến lược khác nhau:
 
-- **Request Memoization**: Deduplicates identical requests
-- **Data Cache**: Caches fetch requests
-- **Full Route Cache**: Caches entire page renders
+- **Request Memoization**: Loại bỏ các request giống nhau
+- **Data Cache**: Cache các fetch request
+- **Full Route Cache**: Cache toàn bộ page renders
 
-## Conclusion
+## Kết luận
 
-Choose your data fetching strategy based on your content's update frequency and performance requirements. SSG for static content, SSR for dynamic content, and ISR for the best of both worlds.
+Chọn chiến lược data fetching dựa trên tần suất cập nhật nội dung và yêu cầu hiệu suất của bạn. SSG cho nội dung tĩnh, SSR cho nội dung động, và ISR cho sự kết hợp tốt nhất của cả hai.
     `,
-    author: "Mike Johnson",
+    author: "Lê Văn C",
     publishedAt: "2024-01-10",
-    tags: ["Next.js", "Data Fetching", "Performance", "SSG", "SSR", "ISR"],
+    tags: ["Next.js", "Data Fetching", "Hiệu suất", "SSG", "SSR", "ISR"],
   },
   {
     id: "4",
-    title: "Building Forms with Server Actions",
-    slug: "building-forms-server-actions",
+    title: "Xây Dựng Form Với Server Actions",
+    slug: "xay-dung-form-voi-server-actions",
     excerpt:
-      "Learn how to build modern forms using Next.js Server Actions for better performance and user experience.",
+      "Học cách xây dựng form hiện đại sử dụng Next.js Server Actions để có hiệu suất và trải nghiệm người dùng tốt hơn.",
     content: `
-# Building Forms with Server Actions
+# Xây Dựng Form Với Server Actions
 
-Server Actions are a powerful feature in Next.js that allows you to run server-side code directly from forms, eliminating the need for API routes.
+Server Actions là một tính năng mạnh mẽ trong Next.js cho phép bạn chạy code server-side trực tiếp từ form, loại bỏ nhu cầu về API routes.
 
-## What are Server Actions?
+## Server Actions là gì?
 
-Server Actions are functions that run on the server and can be called directly from Client Components or forms. They:
+Server Actions là các function chạy trên server và có thể được gọi trực tiếp từ Client Components hoặc form. Chúng:
 
-- Run on the server, not in the browser
-- Can access server-side resources
-- Provide progressive enhancement
-- Work without JavaScript enabled
+- Chạy trên server, không phải trong trình duyệt
+- Có thể truy cập các tài nguyên server-side
+- Cung cấp progressive enhancement
+- Hoạt động mà không cần JavaScript được bật
 
-## Creating a Server Action
+## Tạo Server Action
 
 \`\`\`typescript
 'use server';
@@ -243,7 +243,7 @@ export async function createPost(formData: FormData) {
 }
 \`\`\`
 
-## Using Server Actions in Forms
+## Sử dụng Server Actions trong Form
 
 \`\`\`typescript
 import { createPost } from './actions';
@@ -259,9 +259,9 @@ export default function CreatePostForm() {
 }
 \`\`\`
 
-## Form Validation with Zod
+## Form Validation với Zod
 
-For better validation, use Zod with Server Actions:
+Để validation tốt hơn, sử dụng Zod với Server Actions:
 
 \`\`\`typescript
 import { z } from 'zod';
@@ -287,20 +287,20 @@ export async function createPost(formData: FormData) {
 
 ## Progressive Enhancement
 
-Server Actions work with progressive enhancement:
+Server Actions hoạt động với progressive enhancement:
 
-- Forms work without JavaScript
-- Enhanced with JavaScript when available
-- Automatic form state management
-- Built-in error handling
+- Form hoạt động mà không cần JavaScript
+- Được nâng cao với JavaScript khi có sẵn
+- Quản lý trạng thái form tự động
+- Xử lý lỗi tích hợp
 
-## Conclusion
+## Kết luận
 
-Server Actions provide a modern, efficient way to handle form submissions and server-side operations in Next.js applications. They eliminate the need for API routes while providing better performance and user experience.
+Server Actions cung cấp một cách hiện đại, hiệu quả để xử lý form submission và các thao tác server-side trong ứng dụng Next.js. Chúng loại bỏ nhu cầu về API routes trong khi cung cấp hiệu suất và trải nghiệm người dùng tốt hơn.
     `,
-    author: "Sarah Wilson",
+    author: "Phạm Thị D",
     publishedAt: "2024-01-08",
-    tags: ["Next.js", "Server Actions", "Forms", "Validation"],
+    tags: ["Next.js", "Server Actions", "Form", "Validation"],
   },
 ];
 

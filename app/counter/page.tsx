@@ -1,4 +1,4 @@
-import CounterButton from './CounterButton';
+import CounterButton from "./CounterButton";
 
 export default function CounterPage() {
   return (
@@ -7,16 +7,16 @@ export default function CounterPage() {
         <div className="text-center">
           {/* Server Component - Tiêu đề */}
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Counter Example
+            Ví Dụ Đếm Số
           </h1>
           <p className="text-xl text-gray-600 mb-8">
-            This demonstrates the difference between Server and Client Components
+            Điều này minh họa sự khác biệt giữa Server và Client Components
           </p>
-          
+
           <div className="bg-gray-50 p-8 rounded-lg max-w-2xl mx-auto">
             <div className="mb-6">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-                How it works:
+                Cách hoạt động:
               </h2>
               <div className="text-left space-y-3">
                 <div className="flex items-start">
@@ -25,7 +25,8 @@ export default function CounterPage() {
                   </div>
                   <div>
                     <p className="text-gray-700">
-                      <strong>Server Component (this page):</strong> The title and description above are rendered on the server
+                      <strong>Server Component (trang này):</strong> Tiêu đề và
+                      mô tả ở trên được render trên server
                     </p>
                   </div>
                 </div>
@@ -35,7 +36,8 @@ export default function CounterPage() {
                   </div>
                   <div>
                     <p className="text-gray-700">
-                      <strong>Client Component (button below):</strong> The counter button uses useState and runs in the browser
+                      <strong>Client Component (nút bên dưới):</strong> Nút đếm
+                      sử dụng useState và chạy trong trình duyệt
                     </p>
                   </div>
                 </div>
@@ -45,17 +47,18 @@ export default function CounterPage() {
                   </div>
                   <div>
                     <p className="text-gray-700">
-                      <strong>Best of both worlds:</strong> Server components for static content, Client components for interactivity
+                      <strong>Tốt nhất của cả hai:</strong> Server components
+                      cho nội dung tĩnh, Client components cho tính tương tác
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-            
+
             {/* Client Component - Counter Button */}
             <div className="bg-white p-6 rounded-lg border-2 border-dashed border-gray-300">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Interactive Counter (Client Component)
+                Bộ Đếm Tương Tác (Client Component)
               </h3>
               <CounterButton />
             </div>

@@ -7,7 +7,7 @@ export default function Navbar() {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="text-xl font-bold text-gray-900">
-              My App
+              Ứng Dụng Của Tôi
             </Link>
           </div>
           <div className="flex items-center space-x-8">
@@ -15,13 +15,13 @@ export default function Navbar() {
               href="/" 
               className="text-gray-600 hover:text-gray-900 transition-colors"
             >
-              Home
+              Trang Chủ
             </Link>
             <Link 
               href="/about" 
               className="text-gray-600 hover:text-gray-900 transition-colors"
             >
-              About
+              Giới Thiệu
             </Link>
             <Link 
               href="/blog" 
@@ -33,19 +33,19 @@ export default function Navbar() {
               href="/contact" 
               className="text-gray-600 hover:text-gray-900 transition-colors"
             >
-              Contact
+              Liên Hệ
             </Link>
             <Link 
               href="/counter" 
               className="text-gray-600 hover:text-gray-900 transition-colors"
             >
-              Counter
+              Đếm Số
             </Link>
             <Link 
               href="/dashboard" 
               className="text-gray-600 hover:text-gray-900 transition-colors"
             >
-              Dashboard
+              Bảng Điều Khiển
             </Link>
           </div>
         </div>

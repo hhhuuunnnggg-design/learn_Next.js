@@ -8,11 +8,12 @@ export default async function Home() {
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h1 className="text-4xl font-bold text-gray-900 mb-8">
-            Welcome to My Next.js App
+            Chào Mừng Đến Với Ứng Dụng Next.js Của Tôi
           </h1>
           <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
-            This is a learning project to understand Next.js App Router, Server
-            Components, Client Components, and modern Next.js features.
+            Đây là dự án học tập để hiểu về Next.js App Router, Server
+            Components, Client Components, và các tính năng hiện đại của
+            Next.js.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto mb-16">
@@ -21,13 +22,13 @@ export default async function Home() {
                 App Router
               </h3>
               <p className="text-gray-600 mb-4">
-                Learn about file-based routing and nested layouts
+                Tìm hiểu về file-based routing và nested layouts
               </p>
               <Link
                 href="/about"
                 className="text-blue-600 hover:text-blue-800 font-medium"
               >
-                Explore →
+                Khám Phá →
               </Link>
             </div>
 
@@ -36,28 +37,28 @@ export default async function Home() {
                 Components
               </h3>
               <p className="text-gray-600 mb-4">
-                Server vs Client Components with interactivity
+                Server vs Client Components với tính tương tác
               </p>
               <Link
                 href="/counter"
                 className="text-blue-600 hover:text-blue-800 font-medium"
               >
-                Try Counter →
+                Thử Đếm Số →
               </Link>
             </div>
 
             <div className="bg-gray-50 p-6 rounded-lg">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                Dashboard
+                Bảng Điều Khiển
               </h3>
               <p className="text-gray-600 mb-4">
-                Nested layout with sidebar navigation
+                Layout lồng nhau với thanh điều hướng bên
               </p>
               <Link
                 href="/dashboard"
                 className="text-blue-600 hover:text-blue-800 font-medium"
               >
-                View Dashboard →
+                Xem Bảng Điều Khiển →
               </Link>
             </div>
           </div>
@@ -65,7 +66,7 @@ export default async function Home() {
           {/* Blog Section */}
           <div className="text-left">
             <h2 className="text-3xl font-bold text-gray-900 mb-8">
-              Latest Blog Posts
+              Bài Viết Blog Mới Nhất
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {posts.slice(0, 4).map((post) => (
@@ -109,7 +110,7 @@ export default async function Home() {
                     href={`/blog/${post.slug}`}
                     className="text-blue-600 hover:text-blue-800 font-medium"
                   >
-                    Read more →
+                    Đọc thêm →
                   </Link>
                 </article>
               ))}
@@ -119,7 +120,7 @@ export default async function Home() {
                 href="/blog"
                 className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
               >
-                View All Posts
+                Xem Tất Cả Bài Viết
               </Link>
             </div>
           </div>

@@ -3,25 +3,25 @@ export default function About() {
     <div className="bg-white">
       <div className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">About Us</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Giới Thiệu</h1>
           <p className="text-xl text-gray-600">
-            Learning Next.js App Router and modern web development
+            Học tập Next.js App Router và phát triển web hiện đại
           </p>
         </div>
 
         <div className="prose prose-lg max-w-none">
           <div className="bg-gray-50 p-8 rounded-lg mb-8">
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-              What is this project?
+              Dự án này là gì?
             </h2>
             <p className="text-gray-700 mb-4">
-              This is a comprehensive learning project designed to explore the
-              latest features of Next.js, particularly the App Router and its
-              modern approach to building React applications.
+              Đây là một dự án học tập toàn diện được thiết kế để khám phá các
+              tính năng mới nhất của Next.js, đặc biệt là App Router và cách
+              tiếp cận hiện đại để xây dựng ứng dụng React.
             </p>
             <p className="text-gray-700">
-              Through this project, we'll learn about file-based routing, Server
-              Components, Client Components, data fetching strategies, and
+              Thông qua dự án này, chúng ta sẽ học về file-based routing, Server
+              Components, Client Components, các chiến lược data fetching, và
               Server Actions.
             </p>
           </div>
@@ -32,8 +32,8 @@ export default function About() {
                 App Router
               </h3>
               <p className="text-blue-800">
-                File-based routing system that makes navigation intuitive and
-                code organization clean.
+                Hệ thống routing dựa trên file giúp điều hướng trực quan và tổ
+                chức code sạch sẽ.
               </p>
             </div>
 
@@ -42,8 +42,8 @@ export default function About() {
                 Server Components
               </h3>
               <p className="text-green-800">
-                Components that render on the server for better performance and
-                SEO optimization.
+                Các component được render trên server để có hiệu suất tốt hơn và
+                tối ưu hóa SEO.
               </p>
             </div>
 
@@ -52,8 +52,8 @@ export default function About() {
                 Client Components
               </h3>
               <p className="text-purple-800">
-                Interactive components that run in the browser for user
-                interactions and state management.
+                Các component tương tác chạy trong trình duyệt để xử lý tương
+                tác người dùng và quản lý state.
               </p>
             </div>
 
@@ -62,8 +62,8 @@ export default function About() {
                 Server Actions
               </h3>
               <p className="text-orange-800">
-                Modern way to handle form submissions and server-side operations
-                without API routes.
+                Cách hiện đại để xử lý form submission và các thao tác
+                server-side mà không cần API routes.
               </p>
             </div>
           </div>
