@@ -11,41 +11,53 @@ export default function Navbar() {
             </Link>
           </div>
           <div className="flex items-center space-x-8">
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className="text-gray-600 hover:text-gray-900 transition-colors"
             >
               Trang Chủ
             </Link>
-            <Link 
-              href="/about" 
+            <Link
+              href="/about"
               className="text-gray-600 hover:text-gray-900 transition-colors"
             >
               Giới Thiệu
             </Link>
-            <Link 
-              href="/blog" 
+            <Link
+              href="/blog"
               className="text-gray-600 hover:text-gray-900 transition-colors"
             >
               Blog
             </Link>
-            <Link 
-              href="/contact" 
+            <Link
+              href="/contact"
               className="text-gray-600 hover:text-gray-900 transition-colors"
             >
               Liên Hệ
             </Link>
-            <Link 
-              href="/counter" 
+            <Link
+              href="/counter"
               className="text-gray-600 hover:text-gray-900 transition-colors"
             >
               Đếm Số
             </Link>
-            <Link 
-              href="/dashboard" 
+            <Link
+              href="/dashboard"
               className="text-gray-600 hover:text-gray-900 transition-colors"
             >
               Bảng Điều Khiển
+            </Link>
+            <Link
+              href="/login"
+              className="text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              Đăng Nhập
+            </Link>
+            <Link
+              href="/register"
+              className="text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              Đăng Ký
             </Link>
           </div>
         </div>
