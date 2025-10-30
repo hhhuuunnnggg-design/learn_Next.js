@@ -34,16 +34,20 @@ export async function login(
       };
     }
 
-    const { email } = result.data;
+    const { email, password } = result.data;
 
-    // Demo: ghi log. Tại đây bạn có thể gọi DB/NextAuth/bất kỳ dịch vụ nào
-    console.log("User login:", {
-      email,
-      timestamp: new Date().toISOString(),
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+    const res = await fetch(`${baseUrl}/api/auth/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      cache: "no-store",
+      body: JSON.stringify({ email, password }),
     });
 
-    // Giả lập độ trễ
-    await new Promise((r) => setTimeout(r, 600));
+    const data = (await res.json()) as { success?: boolean; message?: string };
+    if (!res.ok || !data.success) {
+      return { error: data.message || "Đăng nhập thất bại" };
+    }
 
     return { success: true };
   } catch (err) {

@@ -43,25 +43,6 @@ export default function RegisterForm() {
 
       <form action={formAction} className="space-y-6">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-            Họ và tên *
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
-              state.fieldErrors?.name ? "border-red-300" : "border-gray-300"
-            }`}
-            placeholder="Nguyễn Văn A"
-          />
-          {state.fieldErrors?.name && (
-            <p className="mt-1 text-sm text-red-600">{state.fieldErrors.name[0]}</p>
-          )}
-        </div>
-
-        <div>
           <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
             Email *
           </label>
@@ -100,21 +81,23 @@ export default function RegisterForm() {
         </div>
 
         <div>
-          <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-2">
-            Xác nhận mật khẩu *
+          <label htmlFor="role" className="block text-sm font-medium text-gray-700 mb-2">
+            Vai trò *
           </label>
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
+          <select
+            id="role"
+            name="role"
+            defaultValue="USER"
             required
             className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
-              state.fieldErrors?.confirmPassword ? "border-red-300" : "border-gray-300"
+              state.fieldErrors?.role ? "border-red-300" : "border-gray-300"
             }`}
-            placeholder="••••••••"
-          />
-          {state.fieldErrors?.confirmPassword && (
-            <p className="mt-1 text-sm text-red-600">{state.fieldErrors.confirmPassword[0]}</p>
+          >
+            <option value="USER">USER</option>
+            <option value="ADMIN">ADMIN</option>
+          </select>
+          {state.fieldErrors?.role && (
+            <p className="mt-1 text-sm text-red-600">{state.fieldErrors.role[0]}</p>
           )}
         </div>
 

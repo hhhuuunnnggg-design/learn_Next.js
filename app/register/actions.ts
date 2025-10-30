@@ -2,26 +2,19 @@
 
 import { z } from "zod";
 
-const registerSchema = z
-  .object({
-    name: z.string().min(2, "Tên phải có ít nhất 2 ký tự"),
-    email: z.string().email("Vui lòng nhập email hợp lệ"),
-    password: z.string().min(6, "Mật khẩu phải có ít nhất 6 ký tự"),
-    confirmPassword: z.string().min(6, "Mật khẩu phải có ít nhất 6 ký tự"),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: "Mật khẩu xác nhận không khớp",
-    path: ["confirmPassword"],
-  });
+const registerSchema = z.object({
+  email: z.string().email("Vui lòng nhập email hợp lệ"),
+  password: z.string().min(6, "Mật khẩu phải có ít nhất 6 ký tự"),
+  role: z.enum(["ADMIN", "USER"]),
+});
 
 export type RegisterFormState = {
   success?: boolean;
   error?: string;
   fieldErrors?: {
-    name?: string[];
     email?: string[];
     password?: string[];
-    confirmPassword?: string[];
+    role?: string[];
   };
 };
 
@@ -31,10 +24,9 @@ export async function register(
 ): Promise<RegisterFormState> {
   try {
     const raw = {
-      name: formData.get("name") as string,
       email: formData.get("email") as string,
       password: formData.get("password") as string,
-      confirmPassword: formData.get("confirmPassword") as string,
+      role: formData.get("role") as "ADMIN" | "USER",
     };
 
     const result = registerSchema.safeParse(raw);
@@ -45,17 +37,20 @@ export async function register(
       };
     }
 
-    const { name, email } = result.data;
+    const { email, password, role } = result.data;
 
-    // Demo: ghi log. Tại đây bạn có thể lưu DB/gọi API
-    console.log("User register:", {
-      name,
-      email,
-      timestamp: new Date().toISOString(),
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+    const res = await fetch(`${baseUrl}/api/auth/register`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      cache: "no-store",
+      body: JSON.stringify({ email, password, role }),
     });
 
-    // Giả lập độ trễ
-    await new Promise((r) => setTimeout(r, 700));
+    const data = (await res.json()) as { success?: boolean; message?: string };
+    if (!res.ok || !data.success) {
+      return { error: data.message || "Đăng ký thất bại" };
+    }
 
     return { success: true };
   } catch (err) {
@@ -63,5 +58,3 @@ export async function register(
     return { error: "Đã xảy ra lỗi. Vui lòng thử lại." };
   }
 }
-
-
